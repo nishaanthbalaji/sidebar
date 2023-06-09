@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="sidebar" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: rgba(0, 0, 0, 0.2);
+      height: 100vh;
+    }
+    #one {
+      display: flex;
+      justify-content: space-between;
+    }
+    #toggle {
+      height: 70px;
+      width: 50px;
+      /* background-color: aqua; */
+      /* display: flex;
+      justify-content: flex-end; */
+      margin-right: 20px;
+      margin-top: 20px;
+      animation: zoom 2s infinite linear;
+    }
+    @keyframes zoom {
+      0% {
+        transform: scale(50%);
+      }
+      100% {
+        transform: scale(100%);
+      }
+    }
+    .a {
+      height: 5px;
+      width: 40px;
+      background-color: lightseagreen;
+      margin: 10px;
+    }
+
+    .c {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .aa {
+      font-size: 25px;
+      color: lightseagreen;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 20px;
+    }
+    .sidebar {
+      background-color: white;
+      width: 400px;
+      padding-top: 20px;
+      transition: 0.5s;
+      transform: translateX(0);
+    }
+    .move {
+      transform: translateX(-100%);
+    }
+
+    #close {
+      font-size: 30px;
+      color: red;
+      transition: 0.5s;
+      padding-right: 20px;
+    }
+    #close:hover {
+      font-size: 40px;
+      cursor: pointer;
+      animation: spin 1s infinite;
+    }
+    @keyframes spin {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(-360deg);
+      }
+    }
+    .options {
+      margin-top: 60px;
+      font-size: 20px;
+      opacity: 0.8;
+    }
+    .pp {
+      /* margin-top: 25px; */
+      transition: 0.5s;
+      height: 60px;
+      padding-left: 20px;
+      padding-top: 15px;
+    }
+    .pp:hover {
+      background-color: lightseagreen;
+      color: lightgray;
+    }
+    .icon {
+      margin-top: 230px;
+      margin-left: 140px;
+    }
+    i {
+      padding-bottom: 30px;
+      padding-right: 5px;
+      font-size: 25px;
+      color: lightseagreen;
+    }
+
+    @media only screen and (max-width: 560px) {
+      .sidebar {
+        width: 560px;
+      }
+      #toggle {
+        display: none;
+      }
+    }
+
+    .animate__animated .animate__pulse {
+      --animate-duration: 8s;
+    }
+  </style>
+  <body>
+    <section id="one">
+      <div class="sidebar">
+        <div class="header">
+          <p class="c">Coding <span class="aa">Addict</span></p>
+          <i class="fa-sharp fa-solid fa-xmark" id="close"></i>
+        </div>
+        <div class="options">
+          <p class="pp">Home</p>
+          <p class="pp">About</p>
+          <p class="pp">Projects</p>
+          <p class="pp">contact</p>
+        </div>
+        <div class="icon">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-brands fa-square-gitlab"></i>
+        </div>
+      </div>
+      <div id="toggle" class="animate__animated animate__pulse">
+        <div class="a"></div>
+        <div class="a"></div>
+        <div class="a"></div>
+      </div>
+    </section>
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let toggle = document.querySelector("#toggle");
+      let close = document.querySelector("#close");
+      console.log(toggle);
+      console.log(sidebar);
+      toggle.addEventListener("click", () => {
+        sidebar.classList.toggle("move");
+      });
+      close.addEventListener("click", () => {
+        sidebar.classList.add("move");
+        console.log("hi");
+      });
+    </script>
+  </body>
+</html>
